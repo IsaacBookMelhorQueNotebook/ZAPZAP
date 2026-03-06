@@ -131,8 +131,6 @@ import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/fi
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-let username = localStorage.getItem("username");
-
 let username = localStorage.getItem("chat_username");
 
 if(!username){
@@ -141,8 +139,6 @@ if(!username){
 }
 
 localStorage.setItem("username", username);
-
-}
 
 const input = document.getElementById("msg");
 const messagesDiv = document.getElementById("messages");
@@ -237,4 +233,3 @@ typingDiv.innerText="";
 
 </body>
 </html>
-
