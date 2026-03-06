@@ -131,14 +131,19 @@ import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/fi
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-let username = localStorage.getItem("chat_username");
+let username = localStorage.getItem("username");
 
-if(!username){
-    username = prompt("Digite seu nome de usuário:");
-    localStorage.setItem("chat_username", username);
+if(!username || username === "undefined" || username.trim() === ""){
+
+username = prompt("Digite seu nome:");
+
+if(!username || username.trim() === ""){
+username = "Anônimo";
 }
 
 localStorage.setItem("username", username);
+
+}
 
 const input = document.getElementById("msg");
 const messagesDiv = document.getElementById("messages");
